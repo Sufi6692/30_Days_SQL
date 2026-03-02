@@ -80,7 +80,7 @@ GROUP BY country;
    HAVING
 =============================================================================== */
 
-/* Find the average score for each country
+/*10. Find the average score for each country
    and return only those countries with an average score greater than 430 */
 SELECT
     country,
@@ -89,7 +89,7 @@ FROM customers
 GROUP BY country
 HAVING AVG(score) > 430;
 
-/* Find the average score for each country
+/* 11. Find the average score for each country
    considering only customers with a score not equal to 0
    and return only those countries with an average score greater than 430 */
 SELECT
@@ -104,7 +104,7 @@ HAVING AVG(score) > 430;
    DISTINCT
 =============================================================================== */
 
--- Return Unique list of all countries
+-- 12. Return Unique list of all countries
 SELECT DISTINCT country
 FROM customers;
 
@@ -112,18 +112,18 @@ FROM customers;
    TOP
 =============================================================================== */
 
--- Retrieve only 3 Customers
+-- 13. Retrieve only 3 Customers
 SELECT *
 FROM customers
 LIMIT 3;
 
--- Retrieve the Top 3 Customers with the Highest Scores
+-- 14. Retrieve the Top 3 Customers with the Highest Scores
 SELECT *
 FROM customers
 ORDER BY score DESC
 LIMIT 3;
 
--- Retrieve the Lowest 2 Customers based on the score
+-- 15. Retrieve the Lowest 2 Customers based on the score
 SELECT  *
 FROM customers
 ORDER BY score ASC
