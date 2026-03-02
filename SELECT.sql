@@ -60,6 +60,8 @@ ORDER BY score ASC;
  
 -- 8. Find the total score for each country 
 
+
+
 SELECT 
 	country,
 	SUM(score) AS total_score
