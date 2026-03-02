@@ -76,3 +76,99 @@ SELECT
     COUNT(id)  AS total_customers
 FROM customers
 GROUP BY country;
+/* ==============================================================================
+   HAVING
+=============================================================================== */
+
+/* Find the average score for each country
+   and return only those countries with an average score greater than 430 */
+SELECT
+    country,
+    AVG(score) AS avg_score
+FROM customers
+GROUP BY country
+HAVING AVG(score) > 430;
+
+/* Find the average score for each country
+   considering only customers with a score not equal to 0
+   and return only those countries with an average score greater than 430 */
+SELECT
+    country,
+    AVG(score) AS avg_score
+FROM customers
+WHERE score != 0
+GROUP BY country
+HAVING AVG(score) > 430;
+
+/* ==============================================================================
+   DISTINCT
+=============================================================================== */
+
+-- Return Unique list of all countries
+SELECT DISTINCT country
+FROM customers;
+
+/* ==============================================================================
+   TOP
+=============================================================================== */
+
+-- Retrieve only 3 Customers
+SELECT *
+FROM customers
+LIMIT 3;
+
+-- Retrieve the Top 3 Customers with the Highest Scores
+SELECT *
+FROM customers
+ORDER BY score DESC
+LIMIT 3;
+
+-- Retrieve the Lowest 2 Customers based on the score
+SELECT  *
+FROM customers
+ORDER BY score ASC
+LIMIT 2;
+
+-- Get the Two Most Recent Orders
+SELECT *
+FROM orders
+ORDER BY order_date DESC
+LIMIT 2;
+
+/* ==============================================================================
+   All Together
+=============================================================================== */
+
+/* Calculate the average score for each country 
+   considering only customers with a score not equal to 0
+   and return only those countries with an average score greater than 430
+   and sort the results by the highest average score first. */
+SELECT
+    country,
+    AVG(score) AS avg_score
+FROM customers
+WHERE score != 0
+GROUP BY country
+HAVING AVG(score) > 430
+ORDER BY AVG(score) DESC;
+
+/* ============================================================================== 
+   COOL STUFF - Additional SQL Features
+=============================================================================== */
+
+-- Execute multiple queries at once
+SELECT * FROM customers;
+SELECT * FROM orders;
+
+/* Selecting Static Data */
+-- Select a static or constant value without accessing any table
+SELECT 123 AS static_number;
+
+SELECT 'Hello' AS static_string;
+
+-- Assign a constant value to a column in a query
+SELECT
+    id,
+    first_name,
+    'New Customer' AS customer_type
+FROM customers;
