@@ -1,5 +1,4 @@
 -- DDL COMMANDS
--- Day - 3
 
 -- CREATE
 /* 1. Create  a new table called persons 
