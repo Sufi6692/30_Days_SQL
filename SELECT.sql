@@ -156,6 +156,7 @@ ORDER BY AVG(score) DESC;
    COOL STUFF - Additional SQL Features
 =============================================================================== */
 
+
 -- Execute multiple queries at once
 SELECT * FROM customers;
 SELECT * FROM orders;
