@@ -1,7 +1,7 @@
 -- No Join
 /* Retrieve all data from customers and orders as separate results */
 
-USE mydatabase;
+	
 SELECT *
 FROM customers;
 

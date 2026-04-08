@@ -80,3 +80,5 @@ WHERE C.id IS NULL;
    ON C.id = O.customer_id
    WHERE O.customer_id IS NOT NULL;
 
+
+   
