@@ -1,4 +1,4 @@
--- Day - 3
+
 -- DML COMMANDS
 
  -- (1- Manual entry(values))
