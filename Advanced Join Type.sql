@@ -1,5 +1,5 @@
--- LEFT ANTI JOIN
-/* Get all customers who haven't placed any order */
+
+
 
 USE mydatabase;
 
