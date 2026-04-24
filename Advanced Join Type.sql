@@ -3,11 +3,14 @@
 
 USE mydatabase;
 
+-- LEFT ANTI JOIN
+/* Get all customers who haven't placed any order */
+
 SELECT *
 FROM customers AS C
 LEFT JOIN orders AS O
 ON C.id = O.customer_id
-WHERE O.customer_id IS NULL;
+WHERE O.customer_id IS NULL; 
 
 -- RIGHT ANTI JOIN
 /* Get all orders without matching customers */
@@ -79,6 +82,8 @@ WHERE C.id IS NULL;
    LEFT JOIN orders AS O
    ON C.id = O.customer_id
    WHERE O.customer_id IS NOT NULL;
+   
+   
 
 
    

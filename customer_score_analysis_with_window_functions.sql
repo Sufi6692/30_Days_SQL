@@ -143,14 +143,56 @@ FROM orders;
 
 
 
+-- Show the employees who have the highest salaries
 
 
 
+SELECT *
+FROM(
+	SELECT *,
+		MAX(salary) OVER() HighestSalary
+	FROM employees
+    )t WHERE salary = HighestSalary;
 
 
+-- Find the deviation of each sales from the minimum and maximum sales amounts
+
+SELECT 
+	orderid,
+    orderdate,
+    productid,
+    sales,
+    MAX(sales) OVER() HighestSales,
+    MIN(sales) OVER() LowestSales,
+    sales - MIN(sales) OVER() DeviationFromMin,
+    MAX(sales) OVER()- sales DevviationFromMax
+FROM orders;
+    
 
 
+-- Calculate moving average of sales for each product over time
+-- calculate moving average of sales for each product over time, including only tha next order 
 
+SELECT 
+orderid,
+orderdate,
+productid,
+sales,
+AVG(sales) OVER(partition by productid)AvgByProduct,
+AVG(sales) OVER(partition by productid ORDER BY orderdate) MovingAvg
+FROM orders;
+
+-- Calculate moving average of sales for each product over time
+-- Calculate moving average of sales for each product over time, including only the next order
+
+SELECT 
+	orderid,
+    productid,
+    orderdate,
+    sales,
+    AVG(sales) OVER(partition by productid ORDER BY orderdate) MovingAvg,
+    AVG(sales) OVER(partition by productid ORDER BY orderdate ROWS BETWEEN CURRENT ROW AND 1 FOLLOWING) RollingAvg
+FROM orders;
 
 
 
